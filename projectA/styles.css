@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: lightblue;
+    text-align: start;
+    font-size: 25px;
+    color: white;
+}
+
+p {
+    font-size: 18px;
+}
+
+#item1 {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    background: lightgray;
+}
+
+#item2 {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    background: lightgray;
+}
+
+#item3 {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    background: lightgray;
+}
+
+#item4 {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    background: lightgray;
+}
+
+article {
+    float: center;
+    padding: 20px;
+    width: 60%;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+footer {
+    background-color: lightblue;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+    text-align: center;
+}
+
+/* Create two equal columns that floats next to each other */
+.column1 {
+    float: left;
+    width: 70%;
+    padding: 13px;
+    height: 360px;
+}
+
+.column2 {
+    float: left;
+    width: 30%;
+    padding: 13px;
+    height: 360px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: end;
+}
+
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding-left: 55px;
+    padding-right: 55px;
+    font-size: 30px;
+    border: 2px solid pink;
+    border-radius: 15px;
+}
+
+.dropdown {
+    position: relative;
+    display: block;
+    float:right;
+    right: 100px;
+}
+
+.dropdown-content {
+    right: 2px;
+    display: block;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 300px;
+    font-size: 22px;
+    border: 2px solid pink;
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 15px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* The background-color will change if mouse cursor hover on the btn */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
