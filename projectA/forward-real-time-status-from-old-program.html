@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Forward Real Time Status From Old Software Program</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+        </script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <h2>Charlie Poon</h2>
+        <div class="row">
+            <h3>Projects Introduction</h3>
+            <h5>Email:sing.poon@gmail.com</h5>
+        </div>
+        <div id="menu_container">
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a href="../index.html"><i class="fa fa-camera-retro fa-1x" aria-hidden="true"></i>Welcome</a>
+                    <a href="../projectA/forward-real-time-status-from-old-program.html"><i class="fa fa-camera-retro fa-1x" aria-hidden="true"></i>Forward real-time status from old software program</a>
+                    <a href="../projectB/QR-code-scanning-APP-Power-APP.html"><i class="fa fa-camera-retro fa-1x" aria-hidden="true"></i>QR code scanning APP(Power APP)</a>
+                    <a href="../projectC/vm-interface-board.html"><i class="fa fa-camera-retro fa-1x" aria-hidden="true"></i>Vending Machine Interface Board</a>
+                    <a href="../files/Charlie-Poon-Chun-Sing-Resume.pdf"><i class="fa fa-book" aria-hidden="true"></i>Resume Download</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <article>
+            <h2>Forward real-time status from old software program</h2>
+            <p class="right">Since the original old in-house server is no longer maintained and having the issue of server vulnerabilities.
+                It is required to shut-down.<br>
+                The original web server program doesn't remain any documentation/source code to study how to arrange the migration.<br>
+                For this reason, it brings an idea to re-develop a new full-stack online platform in order to migrate the server from old to new.<br><br>
+                In the embedded computer, the original vending program can still run and interact with its vending machine <br>and continue to provide vending service to customers.<br>
+                The new software is installed inside the embedded computer and run with the original vending program in the background simultaneously.<br><br>
+                It is resposible for uploading the real-time status like heartbeat, transaction/refill records through MQTT. <br>And keep uploading the transaction settlement file(MPS.) and downloading the specific config file(IBKL./OTP.) <br>for <a href="https://en.wikipedia.org/wiki/Octopus_card"><strong>Octopus Card</strong></a>(The most popular cashless payment method in Hong Kong) through the SFTP.
+            </p>
+            <p class="left">(Click the pictures to enlarge)</p>
+            <div class="row">
+                <div class="column1" style="background-color:#bbb;">
+                    <a href="images/backend-infra-diagram.png" data-fancybox="single" data-caption="Backend Infrastructure">
+                        <img width="580" height="320" src="images/backend-infra-diagram.png" />
+                    </a>
+                </div>
+                <div class="column2" style="background-color:#aaa;">
+                    <h2>Backend Infrastructure</h2>
+                    <p class="left">The original old backend server is discontinued. And the new developed backend server can continue to sustain online service in the AWS EC2 instance.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column1" style="background-color:#aaa;">
+                    <a href="images/mqtt-diagram.png" data-fancybox="single" data-caption="MQTT Messages Broker">
+                        <img width="750" height="150" src="images/mqtt-diagram.png" />
+                    </a>
+                </div>
+                <div class="column2" style="background-color:#bbb;">
+                    <h2>MQTT Messages Broker</h2>
+                    <p class="left">The embedded computer will upload its latest real-time status like heartbeat, transaction/refill records through the MQTT broker.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column1" style="background-color:#bbb;">
+                    <a href="images/reverse-ssh-tunnel.png" data-fancybox="single" data-caption="Reverse SSH Tunnel">
+                        <img width="520" height="340" src="images/reverse-ssh-tunnel.png" />
+                    </a>
+                </div>
+                <div class="column2" style="background-color:#aaa;">
+                    <h2>Reverse SSH Tunnel</h2>
+                    <p class="left">It allows to access embedded computer(Linux) through <a href="https://www.howtogeek.com/428413/what-is-reverse-ssh-tunneling-and-how-to-use-it/">Reverse SSH Tunnel</a>, which means it can execute any Linux command remotely. </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column1" style="background-color:#aaa;">
+                    <a href="images/remote-sw-upgrade.png" data-fancybox="single" data-caption="Remote Software Upgrade">
+                        <img width="520" height="340" src="images/remote-sw-upgrade.png" />
+                    </a>
+                </div>
+                <div class="column2" style="background-color:#bbb;">
+                    <h2>Remote Software Upgrade</h2>
+                    <p class="left">It supports software version upgrade by downloading the prepared package file(.tar.gz) AWS S3 Bucket.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column1" style="background-color:#bbb;">
+                    <a href="images/sw-infra.png" data-fancybox="single" data-caption="Software Infrastructure in Vending Machine Computer">
+                        <img width="525" height="325" src="images/sw-infra.png" />
+                    </a>
+                </div>
+                <div class="column2" style="background-color:#aaa;">
+                    <h2>Software Infrastructure</h2>
+                    <p style="font-size:90%;" class="left">Inside the embedded computer(Ubuntu 12.04 x86 based pc (32-bit)), a complied Python .bin program file is placed and run with the original vending program in background simultaneously.
+                        <br><br>
+                        The .bin program file is developed by Python and complied by <a href=https://nuitka.net>nuitka</a>(The Python Complier) as a standalone .bin program.
+                        <br><br>
+                        The main objective is to keep tracing the log file from vending program.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column1" style="background-color:#aaa;">
+                    <div class="row">
+                        <div>
+                            <a href="images/web-ui-1.png" data-fancybox="gallery" data-caption="Web UI Example 1">
+                                <img width="330" src="images/web-ui-1.png" />
+                            </a>
+                        </div>
+                        <div>
+                            <a href="images/web-ui-2.png" data-fancybox="gallery" data-caption="Web UI Example 2">
+                                <img width="330" src="images/web-ui-2.png" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column2" style="background-color:#bbb;">
+                    <h2>Web UI</h2>
+                </div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+            <script>
+                Fancybox.bind('[data-fancybox="single"]', {
+                    groupAttr: false,
+                });
+                Fancybox.bind('[data-fancybox="gallery"]', {
+                });
+            </script>
+        </article>
+    </section>
+</body>
+
+</html>
